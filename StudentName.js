@@ -4,6 +4,9 @@
 
 let testWord = "esternocleidomastoideo";
 function wordCutter(word) {
+    const newWordArray = word.split ("")
+    const desordenaArray= newWordArray.sort()
+    desordenaArray.forEach(letra => {console.log(letra)})
    // :)
 }
 wordCutter(testWord);
