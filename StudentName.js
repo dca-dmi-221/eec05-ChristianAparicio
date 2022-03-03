@@ -30,8 +30,19 @@ let testWordsList = [
 
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
+    const newWordList = wordsList.map(word=> word.tolowerCase)
+
+    if(newWordList.includes(targetWord.toUpperCase())){
+        console.log("the word"+ targetWord +"is included")
+    }
+    else{
+        console.log(targetWord +"is not invited to the party")
+    }
    // :)
 }
+wordSearcherIgnoreCase(testTargetWordA, testWordsList);
+wordSearcherIgnoreCase(testTargetWordB,testWordsList);
+wordSearcherIgnoreCase(testTargetWordC,testWordsList);
 
 
 
