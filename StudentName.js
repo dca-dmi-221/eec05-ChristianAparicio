@@ -80,6 +80,7 @@ let wordArrayA = ["hola", "¿" ,"cómo", "estás", "?"];
 let wordArrayB = ["te", "ves" ,"igual", "te", "ves", "igual"];
 
 function arrayJoiner(listA, listB) {
+    const wordArrayC= wordArrayA.concat(wordArrayB);
  // :)
 }
 
