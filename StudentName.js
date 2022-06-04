@@ -4,6 +4,9 @@
 
 let testWord = "esternocleidomastoideo";
 function wordCutter(word) {
+    const newWordArray = word.split ("")
+    const desordenaArray= newWordArray.sort()
+    desordenaArray.forEach(letra => {console.log(letra)})
    // :)
 }
 wordCutter(testWord);
@@ -27,8 +30,19 @@ let testWordsList = [
 
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
+    const newWordList = wordsList.map(word=> word.tolowerCase)
+
+    if(newWordList.includes(targetWord.toUpperCase())){
+        console.log("the word"+ targetWord +"is included")
+    }
+    else{
+        console.log(targetWord +"is not invited to the party")
+    }
    // :)
 }
+wordSearcherIgnoreCase(testTargetWordA, testWordsList);
+wordSearcherIgnoreCase(testTargetWordB,testWordsList);
+wordSearcherIgnoreCase(testTargetWordC,testWordsList);
 
 
 
@@ -49,8 +63,18 @@ let testSampleList = [
 ];
 
 function wordLengthClassifier(wordsList) {
+
+const ordenadoArray = wordsList.sort(function(a,b){return b.lenght - a.lenght});
+const tamañoArray= ordenadoArray.lenght
+let sumadorPalabras= 0;
+
+wordsList.forEach(word=>{ sumadorPalabras += word.lenght 
+    console.log(sumadorPalabras)})
+
+    return {palabraLarga: ordenadoArray[0], palabraCorta: ordenadoArray[tamañoArray-1]}
     // :)
 }
+console.log(wordLengthClassifier(testSampleList));
 
 
 /*Dado un string retorna si este es o no un palíndromo. No debe diferenciar entre mayúsculas y minúsculas*/
@@ -61,8 +85,20 @@ let onVerificationWordC = "Gomosos";
 let onVerificationWordD = "Somos";
 
 function palindromeVerifier(word) {
+    const palabraDerecho = word.tolowerCase()
+    const palabrasReves = word.tolowerCase().split("").reverse().join("")
+    if(palabraDerecho===palabrasReves){
+        console.log(word+ "es palindromo!!!!")
+    }
+    else{
+        console.log(word+"no es palindromo")
+    }
    // :)
 }
+palindromeVerifier(onVerificationWordA);
+palindromeVerifier(onVerificationWordB);
+palindromeVerifier(onVerificationWordC);
+palindromeVerifier(onVerificationWordD);
 
 
 /*Dado un objeto que contiene una lista de palabras contar el
@@ -71,8 +107,21 @@ let containerTestObject = {
     list:["Cumbamba", "Oreja", "Nariz", "Ojo", "Lengua", "Diente"]
 }
 function lettersCounter(objectContainer) {
+    let vocales=0
+    let consonantes= 0
+    objectContainer.list.forEach(word=> {
+        word.tolowerCase().split("").forEach(letra =>{
+            if(letra==="a"|| letra==="e"|| letra==="i"|| letra==="0"|| letra=== "u"){
+            vocales +=1
+            }else{
+                consonantes +=1
+            }
+        })
+    })
+    return[vocales, consonantes]
    // :)
 }
+console.log(lettersCounter(containerTestObject))
 
 
 /*Dado 2 arreglos de strings retornar un arreglo con todos los strings.*/
@@ -80,6 +129,7 @@ let wordArrayA = ["hola", "¿" ,"cómo", "estás", "?"];
 let wordArrayB = ["te", "ves" ,"igual", "te", "ves", "igual"];
 
 function arrayJoiner(listA, listB) {
+    const wordArrayC= wordArrayA.concat(wordArrayB);
  // :)
 }
 
@@ -91,6 +141,16 @@ let testWordToExplore = "amar";
 let wordsToVerify = ["amar", "arma", "rana" , "mara", "rama", "roma", "amor", "ramon", "omar"];
 
 function anagramVerifier(wordToExplore, listOfWords) {
+    let posicionesAnagrama = []
+    listOfWords.forEach((word,num) => {
+        const palabraArrayOrdenada = word.split("").sort().join("")
+        const palabraMetodoOrdenada = wordToExplore.split("").sort().join("")
+        if (palabraArrayOrdenada === palabraMetodoOrdenada) {
+            posicionesAnagrama.push(num)
+        }
+
+    })
+    return posicionesAnagrama
    // :)
 }
 
@@ -103,8 +163,11 @@ let testObjMultiContainer = {
 };
 
 function vocalsRemoverFromObject(objectMultiContainer) {
+        let listas = objectMultiContainer.listA.concat(objectMultiContainer.listB);
+    for (let i = 0; i < listas.length; i++) {
+        listas[i] = listas[i].replace(/[aeiou]/g, '');     
     // :)
-}
+}}
 
 console.log(vocalsRemoverFromObject(testObjMultiContainer));
 
